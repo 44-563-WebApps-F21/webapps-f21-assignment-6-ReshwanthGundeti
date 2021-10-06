@@ -41,11 +41,62 @@ for (i=1;i<=expo;i++)
 
 }
 
+}
+</script>
 
+<form>
+    <input type="radio" id="radio1" name="arithmetic" value="plus" onclick="processRadio()">  
+       
+    <label for="radio1">+</label></br>
+  
+    <input type="radio" id="radio2" name="arithmetic" value="minus" onclick="processRadio()">
 
+    <label for="radio2">-</label></br>
+  
+    <input type="radio" id="radio3" name="arithmetic"  value="times" onclick="processRadio()">
+    <label for="radio3">*</label></br>
+
+    <input type="radio" id="radio4" name="arithmetic" onclick="processRadio()" value="divide">
+    <label for="radio4">/</label>
+</form>
+
+  <p id="result"> </p>
+
+  <script>
+
+ function processRadio()
+ {
+
+  base = document.getElementById("base element").value
+  expo = document.getElementById("exponent").value
+  arithmeticvalue = document.getElementsByName("arithmetic")
+  out=document.getElementById("result")
+
+  for(i = 0; i < arithmeticvalue.length; i++) {
+        if(arithmeticvalue[i].checked){
+            console.log(arithmeticvalue[i].value)
+            if(arithmeticvalue[i].value=="plus"){
+                let add = parseFloat(base)+parseFloat(expo)
+                out.innerHTML = "Result for " + base + " + " + expo + " is " + add
+            }
+            else if(arithmeticvalue[i].value=="minus"){
+                let sub = base-expo
+                out.innerHTML = "Result for " + base + " - " + expo + " is " + sub
+            }
+            else if(arithmeticvalue[i].value=="times"){
+                let mul = base*expo
+                out.innerHTML = "Result for " + base + " * " + expo+ " is " + mul
+            }
+            else if(arithmeticvalue[i].value=="divide"){
+                let div = base/expo
+                out.innerHTML = "Result for " + base + " / " + expo + " is " + div
+            }
+        }
+    }
 
 }
 
-</script>
+  </script>
+
 </body>
 </html> 
