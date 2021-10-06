@@ -15,15 +15,25 @@
 <input type="checkbox" id="ac" name="ac1" value="ac">
 <label for="ac">ac</label></br>
 <input type="checkbox" id="gps" name="gps1"  value="gps" checked>
-<label for="gps">gps</label></br>
+<label for="gps">gps</label></br></br>
 
 <input type="button" onclick="orderCar()" value ="Order a car"><br><br>
 
 </form>
 
+<form>
+    <label for="property">Enter a property</label>
+    <input type ="text" id="property" name="property" value="color"></br><br>
+    
+    <label for="value">Enter a value</label>
+    <input type ="text" id="value" name="value"></br><br>
+
+    <input type="button" onclick="updateCar()" value="Update the car"><br><br>
+
+</form>
 
 
-<p id="result"></p>
+<p id="result">my_car model</p>
 
 <script> 
 
@@ -55,9 +65,21 @@ if(document.getElementById("electric").checked){
         
     }
 
+</script>
 
-   
+<script>
 
+function updateCar(){
+     property=document.getElementById("property").value;
+     values=document.getElementById("value").value;
+        my_car[property]=values;
+        out = document.getElementById("result")
+        my_car = JSON.stringify(my_car)
+        out.innerHTML=my_car
+        my_car = JSON.parse(my_car)
+           
+}
+    
 </script>
 
 </body>
