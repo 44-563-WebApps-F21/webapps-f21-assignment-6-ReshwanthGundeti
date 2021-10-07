@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<h2>Pass phrase by Reshwanth Gundeti</h2>
+<h2 style="color:blue;">Pass phrase by Reshwanth Gundeti</h2>
 
 <form>
     <label for="secret phrase">Enter the secret phrase </label>
@@ -29,18 +29,25 @@ function processPhrase (){
     console.log("Getting form values")
     spValue = document.getElementById("secret phrase").value 
     pCheck = document.getElementById("phrase").value
-    confirmed = confirm("Are these the values? "+spValue+" and "+pCheck)
     
-    
-    out = document.getElementById("result")
+     out = document.getElementById("result")
     if(spValue===pCheck){
         correct = correct+1;
        
       alert("Access allowed")
-    } else {
+    }
+    else if(wrong>=2){
+       document.getElementById("Account").onclick=lockAccount()
+
+      }
+    
+    else {
         wrong = wrong+1;
         
     alert("Access denied")
+    }
+    function lockAccount(){
+        alert("Account locked")
     }
     out.innerHTML="correct count:" +correct+ '<br>' +  "wrong count:" +wrong ; 
 }
